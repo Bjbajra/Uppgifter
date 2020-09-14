@@ -1,0 +1,13 @@
+C:\Users\bijay\source\repos\Uppgift3\Uppgift3\bin\Debug\netcoreapp3.1\Uppgift3.exe
+C:\Users\bijay\source\repos\Uppgift3\Uppgift3\bin\Debug\netcoreapp3.1\Uppgift3.deps.json
+C:\Users\bijay\source\repos\Uppgift3\Uppgift3\bin\Debug\netcoreapp3.1\Uppgift3.runtimeconfig.json
+C:\Users\bijay\source\repos\Uppgift3\Uppgift3\bin\Debug\netcoreapp3.1\Uppgift3.runtimeconfig.dev.json
+C:\Users\bijay\source\repos\Uppgift3\Uppgift3\bin\Debug\netcoreapp3.1\Uppgift3.dll
+C:\Users\bijay\source\repos\Uppgift3\Uppgift3\bin\Debug\netcoreapp3.1\Uppgift3.pdb
+C:\Users\bijay\source\repos\Uppgift3\Uppgift3\obj\Debug\netcoreapp3.1\Uppgift3.AssemblyInfoInputs.cache
+C:\Users\bijay\source\repos\Uppgift3\Uppgift3\obj\Debug\netcoreapp3.1\Uppgift3.AssemblyInfo.cs
+C:\Users\bijay\source\repos\Uppgift3\Uppgift3\obj\Debug\netcoreapp3.1\Uppgift3.csproj.CoreCompileInputs.cache
+C:\Users\bijay\source\repos\Uppgift3\Uppgift3\obj\Debug\netcoreapp3.1\Uppgift3.dll
+C:\Users\bijay\source\repos\Uppgift3\Uppgift3\obj\Debug\netcoreapp3.1\Uppgift3.pdb
+C:\Users\bijay\source\repos\Uppgift3\Uppgift3\obj\Debug\netcoreapp3.1\Uppgift3.genruntimeconfig.cache
+C:\Users\bijay\source\repos\Uppgift3\Uppgift3\obj\Debug\netcoreapp3.1\Uppgift3.csprojAssemblyReference.cache

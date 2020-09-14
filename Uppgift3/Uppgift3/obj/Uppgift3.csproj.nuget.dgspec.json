@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bijay\\source\\repos\\Uppgift1\\Uppgift1\\Uppgift1.csproj": {}
+    "C:\\Users\\bijay\\source\\repos\\Uppgift3\\Uppgift3\\Uppgift3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bijay\\source\\repos\\Uppgift1\\Uppgift1\\Uppgift1.csproj": {
+    "C:\\Users\\bijay\\source\\repos\\Uppgift3\\Uppgift3\\Uppgift3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bijay\\source\\repos\\Uppgift1\\Uppgift1\\Uppgift1.csproj",
-        "projectName": "Uppgift1",
-        "projectPath": "C:\\Users\\bijay\\source\\repos\\Uppgift1\\Uppgift1\\Uppgift1.csproj",
+        "projectUniqueName": "C:\\Users\\bijay\\source\\repos\\Uppgift3\\Uppgift3\\Uppgift3.csproj",
+        "projectName": "Uppgift3",
+        "projectPath": "C:\\Users\\bijay\\source\\repos\\Uppgift3\\Uppgift3\\Uppgift3.csproj",
         "packagesPath": "C:\\Users\\bijay\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bijay\\source\\repos\\Uppgift1\\Uppgift1\\obj\\",
+        "outputPath": "C:\\Users\\bijay\\source\\repos\\Uppgift3\\Uppgift3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bijay\\AppData\\Roaming\\NuGet\\NuGet.Config",
