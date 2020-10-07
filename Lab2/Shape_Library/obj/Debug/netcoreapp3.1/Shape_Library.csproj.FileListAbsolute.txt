@@ -1,0 +1,9 @@
+C:\Users\bijay\source\repos\Lab2\Shape_Library\obj\Debug\netcoreapp3.1\Shape_Library.csprojAssemblyReference.cache
+C:\Users\bijay\source\repos\Lab2\Shape_Library\obj\Debug\netcoreapp3.1\Shape_Library.AssemblyInfoInputs.cache
+C:\Users\bijay\source\repos\Lab2\Shape_Library\obj\Debug\netcoreapp3.1\Shape_Library.AssemblyInfo.cs
+C:\Users\bijay\source\repos\Lab2\Shape_Library\obj\Debug\netcoreapp3.1\Shape_Library.csproj.CoreCompileInputs.cache
+C:\Users\bijay\source\repos\Lab2\Shape_Library\bin\Debug\netcoreapp3.1\Shape_Library.deps.json
+C:\Users\bijay\source\repos\Lab2\Shape_Library\bin\Debug\netcoreapp3.1\Shape_Library.dll
+C:\Users\bijay\source\repos\Lab2\Shape_Library\bin\Debug\netcoreapp3.1\Shape_Library.pdb
+C:\Users\bijay\source\repos\Lab2\Shape_Library\obj\Debug\netcoreapp3.1\Shape_Library.dll
+C:\Users\bijay\source\repos\Lab2\Shape_Library\obj\Debug\netcoreapp3.1\Shape_Library.pdb

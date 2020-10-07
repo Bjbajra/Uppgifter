@@ -1,0 +1,88 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Shape_Library/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Shape_Library.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Shape_Library.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Shape_Library/1.0.0": {
+      "type": "project",
+      "path": "../Shape_Library/Shape_Library.csproj",
+      "msbuildProject": "../Shape_Library/Shape_Library.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "Shape_Library >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\bijay\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\bijay\\source\\repos\\Lab2\\Lab2_ShapeTest\\Lab2_ShapeTest.csproj",
+      "projectName": "Lab2_ShapeTest",
+      "projectPath": "C:\\Users\\bijay\\source\\repos\\Lab2\\Lab2_ShapeTest\\Lab2_ShapeTest.csproj",
+      "packagesPath": "C:\\Users\\bijay\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\bijay\\source\\repos\\Lab2\\Lab2_ShapeTest\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\bijay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {
+            "C:\\Users\\bijay\\source\\repos\\Lab2\\Shape_Library\\Shape_Library.csproj": {
+              "projectPath": "C:\\Users\\bijay\\source\\repos\\Lab2\\Shape_Library\\Shape_Library.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

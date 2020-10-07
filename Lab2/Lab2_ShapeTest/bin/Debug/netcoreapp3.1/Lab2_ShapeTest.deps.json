@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Lab2_ShapeTest/1.0.0": {
+        "dependencies": {
+          "Shape_Library": "1.0.0"
+        },
+        "runtime": {
+          "Lab2_ShapeTest.dll": {}
+        }
+      },
+      "Shape_Library/1.0.0": {
+        "runtime": {
+          "Shape_Library.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Lab2_ShapeTest/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Shape_Library/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

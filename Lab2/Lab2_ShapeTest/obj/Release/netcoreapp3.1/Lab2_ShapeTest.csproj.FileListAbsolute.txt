@@ -1,0 +1,16 @@
+C:\Users\bijay\source\repos\Lab2\Lab2_ShapeTest\obj\Release\netcoreapp3.1\Lab2_ShapeTest.csprojAssemblyReference.cache
+C:\Users\bijay\source\repos\Lab2\Lab2_ShapeTest\obj\Release\netcoreapp3.1\Lab2_ShapeTest.AssemblyInfoInputs.cache
+C:\Users\bijay\source\repos\Lab2\Lab2_ShapeTest\obj\Release\netcoreapp3.1\Lab2_ShapeTest.AssemblyInfo.cs
+C:\Users\bijay\source\repos\Lab2\Lab2_ShapeTest\obj\Release\netcoreapp3.1\Lab2_ShapeTest.csproj.CoreCompileInputs.cache
+C:\Users\bijay\source\repos\Lab2\Lab2_ShapeTest\bin\Release\netcoreapp3.1\Lab2_ShapeTest.exe
+C:\Users\bijay\source\repos\Lab2\Lab2_ShapeTest\bin\Release\netcoreapp3.1\Lab2_ShapeTest.deps.json
+C:\Users\bijay\source\repos\Lab2\Lab2_ShapeTest\bin\Release\netcoreapp3.1\Lab2_ShapeTest.runtimeconfig.json
+C:\Users\bijay\source\repos\Lab2\Lab2_ShapeTest\bin\Release\netcoreapp3.1\Lab2_ShapeTest.runtimeconfig.dev.json
+C:\Users\bijay\source\repos\Lab2\Lab2_ShapeTest\bin\Release\netcoreapp3.1\Lab2_ShapeTest.dll
+C:\Users\bijay\source\repos\Lab2\Lab2_ShapeTest\bin\Release\netcoreapp3.1\Lab2_ShapeTest.pdb
+C:\Users\bijay\source\repos\Lab2\Lab2_ShapeTest\bin\Release\netcoreapp3.1\Shape_Library.dll
+C:\Users\bijay\source\repos\Lab2\Lab2_ShapeTest\bin\Release\netcoreapp3.1\Shape_Library.pdb
+C:\Users\bijay\source\repos\Lab2\Lab2_ShapeTest\obj\Release\netcoreapp3.1\Lab2_ShapeTest.csproj.CopyComplete
+C:\Users\bijay\source\repos\Lab2\Lab2_ShapeTest\obj\Release\netcoreapp3.1\Lab2_ShapeTest.dll
+C:\Users\bijay\source\repos\Lab2\Lab2_ShapeTest\obj\Release\netcoreapp3.1\Lab2_ShapeTest.pdb
+C:\Users\bijay\source\repos\Lab2\Lab2_ShapeTest\obj\Release\netcoreapp3.1\Lab2_ShapeTest.genruntimeconfig.cache
