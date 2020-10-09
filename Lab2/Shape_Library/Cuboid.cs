@@ -55,7 +55,8 @@ namespace Shape_Library
         }
 
         public override float Volume => Width * Length * Height;
-        public override float Area => 2 * (Width + Length) * Height;
+        public override float Area => 2 * ((Length * Width) + (Width * Height) + (Length * Height));
+       
 
         public override string ToString()
         {
@@ -63,7 +64,7 @@ namespace Shape_Library
             {
                 return $"Cuboid @({Center.X:0.0}, {Center.Y:0.0}, {Center.Z:0.0}): cube";
             }
-            return $"Cuboid @({Center.X:0.0}, {Center.Y:0.0}, {Center.Z:0.0}) : w = {Math.Round(Width, 1)}, h = {Math.Round(Height, 1)}, l = {Math.Round(Length, 1)} ";
+            return $"Cuboid @({Center.X:0.0}, {Center.Y:0.0}, {Center.Z:0.0}) : w = {Width:F2}, h = {Height:F2}, l = {Length:F2} ";
         }
     }
 }

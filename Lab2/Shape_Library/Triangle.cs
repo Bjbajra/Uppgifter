@@ -1,13 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Numerics;
-
 
 namespace Shape_Library
 {
     public class Triangle : Shape2D //IEnumerable
     {
-        //private Triangle[] pointsTriangles;
-
         public override Vector3 Center { get; }
         public override float Area { get; }
         public override float Circumference { get; }
@@ -44,7 +42,7 @@ namespace Shape_Library
         public override string ToString()
         {
             return
-                $"triangle @({Center.X:0.0}, {Center.Y:0.0}):p1 ({P1X:0.0}, {P1Y:0.0}), p2({P2X:0.0}, {P2Y:0.0}), p3({P3X:0.0}, {P3Y:0.0})";
+                $"triangle @({Center.X:0.0}, {Center.Y:0.0}): p1({P1X:0.0}, {P1Y:0.0}), p2({P2X:0.0}, {P2Y:0.0}), p3({P3X:0.0}, {P3Y:0.0})";
 
         }
 
@@ -59,23 +57,20 @@ namespace Shape_Library
 
         //public IEnumerator GetEnumerator()
         //{
-        //    return new TrianglePointEnumerator(pointsTriangles);
+        //    return new TrianglePointEnumerator(this);
 
         //}
 
         //public class TrianglePointEnumerator : IEnumerator
         //{
-
-        //    //public Triangle Triangle;
         //    public Triangle[] pointsTriangles;
-        //    int position = -1;
-
-
-        //    public TrianglePointEnumerator(Triangle[] triangle)
+        //    int index = -1;
+        //    public TrianglePointEnumerator(Vector2 P1, Vector2 P2, Vector2 P3)
         //    {
-        //        pointsTriangles = triangle;
+        //        pointsTriangles[0] = P1;
+        //        pointsTriangles[1] = P2;
+        //        pointsTriangles[3] = P3;
         //    }
-
         //    public object Current
         //    {
         //        get
@@ -83,16 +78,16 @@ namespace Shape_Library
         //            return pointsTriangles;
         //        }
         //    }
-
         //    public bool MoveNext()
         //    {
-        //        if (position < pointsTriangles.Length)
+        //        if (index > 2)
         //        {
-        //            position++;
+        //            return false;
         //        }
+
+        //        index++;
         //        return true;
         //    }
-
         //    public void Reset()
         //    {
         //    }
