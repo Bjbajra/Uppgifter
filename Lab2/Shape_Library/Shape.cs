@@ -57,18 +57,16 @@ namespace Shape_Library
                     return new Rectangle(new Vector2(center.X, center.Y), rndValue());
                     break;
                 case 3:
-                {
                         float P1X = rndValue();
                         float P1Y = rndValue();
 
                         float P2X = rndValue();
                         float P2Y = rndValue();
 
-                        float P3X = center.X * 3 - P1X - P2X;
-                        float P3Y = center.Y * 3 - P1Y - P2Y;
+                        float P3X = (center.X * 3) - P1X - P2X;
+                        float P3Y = (center.Y * 3) - P1Y - P2Y;
 
-                    return new Triangle(new Vector2(P1X, P2X), new Vector2(P1Y, P2Y), new Vector2(P3X, P3Y));
-                }
+                    return new Triangle(new Vector2(P1X, P1Y), new Vector2(P2X, P2Y), new Vector2(P3X, P3Y));
                     break;
                 case 4:
                     return new Sphere(new Vector3(center.X, center.Y, center.Z), rndValue());

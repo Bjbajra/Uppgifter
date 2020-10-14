@@ -18,7 +18,7 @@ namespace Lab2_ShapeTest
             for (int i = 0; i < 20; i++)
             {
                 //Shape generateShape = Shape.GenerateShape();
-                Shape vec3Shape = Shape.GenerateShape(new Vector3(2.0f, 3.5f, 2.5f));
+                Shape vec3Shape = Shape.GenerateShape(Vector3.One);
 
                 //shapes.Add(generateShape);
                 shapes.Add(vec3Shape);
@@ -47,9 +47,9 @@ namespace Lab2_ShapeTest
                 averageAreaAllShapes += shape.Area / shapes.Count;
             }
 
-            Console.WriteLine($"Total of all triangle circumference = {Math.Round(totalOfTriangleCircumference, 2)}\n");
-            Console.WriteLine($"Average area of all shapes = {Math.Round(averageAreaAllShapes, 2)}\n");
-            Console.WriteLine($"Largest volume of 3D shape = {Math.Round(largestVolumeOf3DShapes, 2)}");
+            //Console.WriteLine($"Total of all triangle circumference = {Math.Round(totalOfTriangleCircumference, 2)}\n");
+            //Console.WriteLine($"Average area of all shapes = {Math.Round(averageAreaAllShapes, 2)}\n");
+            //Console.WriteLine($"Largest volume of 3D shape = {Math.Round(largestVolumeOf3DShapes, 2)}");
 
             //Triangle tra = new Triangle(Vector2.Zero, Vector2.One, new Vector2(2.0f, .5f));
             //foreach (Vector v in tra)
