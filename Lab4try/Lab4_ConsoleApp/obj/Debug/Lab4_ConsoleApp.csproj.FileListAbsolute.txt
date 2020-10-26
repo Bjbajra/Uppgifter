@@ -1,0 +1,10 @@
+C:\Users\bijay\source\repos\Lab4\Lab4_ConsoleApp\obj\Debug\Lab4_ConsoleApp.csprojAssemblyReference.cache
+C:\Users\bijay\source\repos\Lab4\Lab4_ConsoleApp\obj\Debug\Lab4_ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\bijay\source\repos\Lab4\Lab4_ConsoleApp\bin\Debug\Lab4_ConsoleApp.exe.config
+C:\Users\bijay\source\repos\Lab4\Lab4_ConsoleApp\bin\Debug\Lab4_ConsoleApp.exe
+C:\Users\bijay\source\repos\Lab4\Lab4_ConsoleApp\bin\Debug\Lab4_ConsoleApp.pdb
+C:\Users\bijay\source\repos\Lab4\Lab4_ConsoleApp\bin\Debug\Word_Library.dll
+C:\Users\bijay\source\repos\Lab4\Lab4_ConsoleApp\bin\Debug\Word_Library.pdb
+C:\Users\bijay\source\repos\Lab4\Lab4_ConsoleApp\obj\Debug\Lab4_ConsoleApp.csproj.CopyComplete
+C:\Users\bijay\source\repos\Lab4\Lab4_ConsoleApp\obj\Debug\Lab4_ConsoleApp.exe
+C:\Users\bijay\source\repos\Lab4\Lab4_ConsoleApp\obj\Debug\Lab4_ConsoleApp.pdb
