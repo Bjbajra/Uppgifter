@@ -32,7 +32,7 @@
             this.Result_textBox = new System.Windows.Forms.TextBox();
             this.Extract_button = new System.Windows.Forms.Button();
             this.SaveImg_button = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.CountLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Search_textBox
@@ -77,23 +77,23 @@
             this.SaveImg_button.UseVisualStyleBackColor = true;
             this.SaveImg_button.Click += new System.EventHandler(this.SaveImg_button_Click);
             // 
-            // label1
+            // CountLabel
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.CountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 414);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "info";
+            this.CountLabel.AutoSize = true;
+            this.CountLabel.Location = new System.Drawing.Point(12, 414);
+            this.CountLabel.Name = "CountLabel";
+            this.CountLabel.Size = new System.Drawing.Size(0, 13);
+            this.CountLabel.TabIndex = 4;
             // 
             // Form1
             // 
+            this.AcceptButton = this.Extract_button;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(796, 446);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.CountLabel);
             this.Controls.Add(this.SaveImg_button);
             this.Controls.Add(this.Extract_button);
             this.Controls.Add(this.Result_textBox);
@@ -101,7 +101,7 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "ImageScraper";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,7 +113,7 @@
         private System.Windows.Forms.TextBox Result_textBox;
         private System.Windows.Forms.Button Extract_button;
         private System.Windows.Forms.Button SaveImg_button;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label CountLabel;
     }
 }
 
