@@ -7,19 +7,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Linq;
-using System.Threading;
 
 namespace Lab5
 {
     public partial class Form1 : Form
     {
         static Encoding enc8 = Encoding.UTF8;
-        private List<string> imageLinks;
+        private List<string> imageLinks = new List<string>();
+        private int i;
 
         public Form1()
         {
             InitializeComponent();
+            SaveImg_button.Enabled = false;
         }
+
         private void Extract_button_Click(object sender, EventArgs e)
         {
             String url = Search_textBox.Text;
@@ -31,28 +33,43 @@ namespace Lab5
                 Result_textBox.Text += Environment.NewLine + imageLink;
             }
 
-            CountLabel.Text = $"Found: {imageLinks.ToArray().Count()} images";
-            //UpdateImageCount();
+            CountLabel.Text = $"Found: {imageLinks.Count()} images";
+            SaveImg_button.Enabled = true;
+            Extract_button.Enabled = false;
         }
+
         private async Task<string> PostRequest(string sUrl)
         {
             HttpClient client = new HttpClient();
             byte[] urlContents = await client.GetByteArrayAsync(sUrl).ConfigureAwait(false);
             return enc8.GetString(urlContents);
         }
+
         private List<string> GetImagesLinks(string htmlString)
         {
             List<string> images = new List<string>();
             string pattern = @"<img\b[^\<\>]+?\bsrc\s*=\s*[""'](?<L>.+?)[""'][^\<\>]*?\>";
             Regex rgx = new Regex(pattern, RegexOptions.IgnoreCase);
             MatchCollection matches = rgx.Matches(htmlString);
-            foreach (Match match in matches)  
+            string imageLink;
+            foreach (Match match in matches)
             {
-                var imageLink = Search_textBox.Text + match.Groups["L"].Value;
+
+                if (match.Groups["L"].Value.StartsWith("http://") || match.Groups["L"].Value.StartsWith("https://"))
+                {
+                    imageLink = match.Groups["L"].Value;
+                }
+                else
+                {
+                    imageLink = Search_textBox.Text + match.Groups["L"].Value;
+                }
+
                 images.Add(imageLink);
             }
+
             return images;
         }
+
         private async void SaveImg_button_Click(object sender, EventArgs e)
         {
             using (var browserDialog = new FolderBrowserDialog())
@@ -61,7 +78,8 @@ namespace Lab5
                 {
                     try
                     {
-                        List<string> exceptions = await SaveImages(browserDialog.SelectedPath, Search_textBox.Text, imageLinks);
+                        List<string> exceptions =
+                            await SaveImages(browserDialog.SelectedPath, Search_textBox.Text, imageLinks);
 
                         if (exceptions.Count > 0)
                         {
@@ -72,12 +90,14 @@ namespace Lab5
                                 errors.Append(exception + "\n\n");
                             }
 
-                            MessageBox.Show(errors.ToString(), "Image Download Error(s)", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(errors.ToString(), "Image Download Error(s)", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.ToString(), "Image Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(ex.ToString(), "Image Download Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
                     }
                 }
             }
@@ -88,50 +108,38 @@ namespace Lab5
             List<string> exceptionMessages = new List<string>();
             String downloadFolderName = path;
             Directory.CreateDirectory(downloadFolderName);
-            List<Task<byte[]>> taskList = new List<Task<byte[]>>();
+            List<Task<byte[]>> tasks = new List<Task<byte[]>>();
             List<ImageDownload> downloadsList = new List<ImageDownload>();
 
             foreach (string image in images)
             {
-                if (image.Contains("bmp") || image.Contains("png") || image.Contains("gif") || image.Contains("jpg") ||
-                    image.Contains("jpeg"))
+                if (image.Contains(".bmp") || image.Contains(".png") || image.Contains(".gif") ||
+                    image.Contains(".jpg") ||
+                    image.Contains(".jpeg"))
                 {
-                    string imageURL = image;
-                    if (!image.Contains("http") && !image.Contains("//"))
-                    {
-                        string urlBase = url;
-                        if (urlBase[urlBase.Length - 1] != '/' && image[0] != '/')
-                        {
-                            imageURL = urlBase + '/' + image;
-                        }
-                        else
-                        {
-                            imageURL = urlBase + image;
-                        }
-                    }
-
                     try
                     {
-                        Uri imageURI = new Uri(imageURL);
+                        Uri imageURI = new Uri(image);
                         HttpClient httpClient = new HttpClient();
                         Task<byte[]> imageBytes = httpClient.GetByteArrayAsync(imageURI);
-                        taskList.Add(imageBytes);
-                        
+                        tasks.Add(imageBytes);
                         downloadsList.Add(new ImageDownload(imageBytes, imageURI));
+
                     }
                     catch (Exception e)
                     {
-                        exceptionMessages.Add("File URL: " + imageURL + "\nError Message: " + e.Message);
+                        exceptionMessages.Add("File URL: " + image + "\nError Message: " + e.Message);
                     }
                 }
             }
 
-            while (taskList.Count > 0)
+            while (tasks.Count > 0)
             {
-                Task<byte[]> imageBytes = await Task.WhenAny(taskList.ToArray());
+                Task<byte[]> imageBytes = await Task.WhenAny(tasks.ToArray());
                 Uri imageURI = null;
+                string imageName = "image";
 
-                for (int i = 0; i < downloadsList.Count; ++i)
+                for (i = 0; i < downloadsList.Count; ++i)
                 {
                     if (downloadsList[i].DownloadTask == imageBytes)
                     {
@@ -143,37 +151,20 @@ namespace Lab5
 
                 if (imageURI != null)
                 {
-                    CancellationTokenSource cancellationToken = new CancellationTokenSource();
                     using (FileStream fs =
                         new FileStream(downloadFolderName + "//" + Path.GetFileName(imageURI.LocalPath),
-                            FileMode.Create))
+                            FileMode.Create, FileAccess.Write))
                     {
                         await fs.WriteAsync(imageBytes.Result, 0, imageBytes.Result.Length);
                     }
-
-                    cancellationToken.Token.ThrowIfCancellationRequested();
                 }
 
-                taskList.Remove(imageBytes);
+                tasks.Remove(imageBytes);
             }
 
             return exceptionMessages;
         }
-        private void UpdateImageCount()
-        {
-            CountLabel.Text = imageLinks.Count.ToString();
-            Result_textBox.Text = "";
 
-            if (imageLinks.Count > 0)
-            {
-                SaveImg_button.Enabled = true;
-
-                foreach (string image in imageLinks)
-                {
-                    Result_textBox.AppendText(image + "\n");
-                }
-            }
-        }
         class ImageDownload
         {
             public Task<byte[]> DownloadTask { get; }
@@ -186,10 +177,7 @@ namespace Lab5
                 URI = uri;
             }
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
+
+

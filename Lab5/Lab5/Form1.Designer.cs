@@ -37,8 +37,9 @@
             // 
             // Search_textBox
             // 
-            this.Search_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.Search_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Search_textBox.Location = new System.Drawing.Point(12, 10);
             this.Search_textBox.Name = "Search_textBox";
             this.Search_textBox.Size = new System.Drawing.Size(674, 20);
@@ -101,7 +102,6 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "ImageScraper";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
