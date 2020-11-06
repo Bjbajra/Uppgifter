@@ -1,0 +1,10 @@
+C:\Users\bijay\source\repos\Lab5_ImageScraper\Lab5_ImageScraper\bin\Debug\Lab5_ImageScraper.exe.config
+C:\Users\bijay\source\repos\Lab5_ImageScraper\Lab5_ImageScraper\bin\Debug\Lab5_ImageScraper.exe
+C:\Users\bijay\source\repos\Lab5_ImageScraper\Lab5_ImageScraper\bin\Debug\Lab5_ImageScraper.pdb
+C:\Users\bijay\source\repos\Lab5_ImageScraper\Lab5_ImageScraper\obj\Debug\Lab5_ImageScraper.csprojAssemblyReference.cache
+C:\Users\bijay\source\repos\Lab5_ImageScraper\Lab5_ImageScraper\obj\Debug\Lab5_ImageScraper.Form1.resources
+C:\Users\bijay\source\repos\Lab5_ImageScraper\Lab5_ImageScraper\obj\Debug\Lab5_ImageScraper.Properties.Resources.resources
+C:\Users\bijay\source\repos\Lab5_ImageScraper\Lab5_ImageScraper\obj\Debug\Lab5_ImageScraper.csproj.GenerateResource.cache
+C:\Users\bijay\source\repos\Lab5_ImageScraper\Lab5_ImageScraper\obj\Debug\Lab5_ImageScraper.csproj.CoreCompileInputs.cache
+C:\Users\bijay\source\repos\Lab5_ImageScraper\Lab5_ImageScraper\obj\Debug\Lab5_ImageScraper.exe
+C:\Users\bijay\source\repos\Lab5_ImageScraper\Lab5_ImageScraper\obj\Debug\Lab5_ImageScraper.pdb
