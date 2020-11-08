@@ -50,7 +50,7 @@
             this.PracticetextBox.Name = "PracticetextBox";
             this.PracticetextBox.Size = new System.Drawing.Size(282, 20);
             this.PracticetextBox.TabIndex = 1;
-            this.PracticetextBox.TextChanged += new System.EventHandler(this.PracticeTextBox_TextChanged);
+            this.PracticetextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PracticeTextBox_KeyDown);
             // 
             // Resultlabel
             // 

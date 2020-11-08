@@ -90,6 +90,7 @@
             // Cancelbutton
             // 
             this.Cancelbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Cancelbutton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancelbutton.Location = new System.Drawing.Point(121, 221);
             this.Cancelbutton.Name = "Cancelbutton";
             this.Cancelbutton.Size = new System.Drawing.Size(75, 23);
@@ -102,17 +103,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.Cancelbutton;
             this.ClientSize = new System.Drawing.Size(205, 256);
-            this.ControlBox = false;
             this.Controls.Add(this.Cancelbutton);
             this.Controls.Add(this.OKbutton);
             this.Controls.Add(this.LanguagetextBox);
             this.Controls.Add(this.Languagelabel);
             this.Controls.Add(this.ListtextBox);
             this.Controls.Add(this.Tittlelabel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "NewListForm";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "NewListForm";
             this.Load += new System.EventHandler(this.NewListForm_Load);

@@ -6,14 +6,9 @@ namespace Lab4_WinForm
 {
     public partial class PracticeControl : UserControl
     {
-        public string ListName { get; }
-        private Word PracticeWord { get; set; }
-        public PracticeControl(string listName)
-        {
-            InitializeComponent();
-            ListName = listName;
-        }
-
+        private string selectedFile = SelectWordList.SelectedFile;
+        private Word _practiceWord;
+        private WordList _wordList;
         public PracticeControl()
         {
             InitializeComponent();
@@ -21,62 +16,68 @@ namespace Lab4_WinForm
        
         public int Score { get; set; }
         public int Attempts { get; set; }
-        private Word PracticeMode()
-        {
-            var name = ListName;
-            PracticeWord = WordList.LoadList(name).GetWordToPractice();
-            return PracticeWord;
-        }
+        
         private void PracticeControl_Load(object sender, EventArgs e)
         {
             PracticeMode();
-            var name = ListName;
-            var arrayOfLanguage = WordList.LoadList(name).Languages;
-
-            Practicelabel.Text =
-                $"Translate the {arrayOfLanguage[PracticeWord.FromLanguage]} word {PracticeWord.Translations[PracticeWord.FromLanguage]} " +
-                $"to {arrayOfLanguage[PracticeWord.ToLanguage]} translation";
-            Resultlabel.Text = $"{Score} of {Attempts} words were correct.";
         }
 
         private void EndButton_Click(object sender, EventArgs e)
-        {
-            PracticeControl practice = new PracticeControl();
-            practice.Hide();
-            MainGridControl mainGrid = new MainGridControl();
-            mainGrid.Show();
+        { 
+            Visible = false;
+            MainForm mainForm = new MainForm();
+            mainForm.TranslationGridView.BringToFront();
+            mainForm.TranslationGridView.Visible = true;
         }
 
         private void RestartButton_Click(object sender, EventArgs e)
         {
+            MessageBox.Show($"{(Score * 100 / Attempts)}% of your answers were correct.");
+            Attempts = 0;
+            Score = 0;
+            Resultlabel.Visible = false;
             PracticeMode();
         }
-
-        private void PracticeTextBox_TextChanged(object sender, EventArgs e)
+        private void PracticeTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            var name = ListName;
-            var arrayOfLanguage = WordList.LoadList(name).Languages;
             var input = PracticetextBox.Text.ToLower();
-            PracticetextBox.Text = string.Empty;
 
-            if (input == PracticeWord.Translations[PracticeWord.ToLanguage].ToLower())
+            if (e.KeyCode == Keys.Enter && !string.IsNullOrWhiteSpace(PracticetextBox.Text))
             {
-                Score++;
-                Attempts++;
-            }
-            else
-            {
-                DialogResult result = MessageBox.Show("Wrong answer!",
-                    $"The correct translation is {PracticeWord.Translations[PracticeWord.ToLanguage].ToLower()}");
-                Attempts++;
-            }
+                e.SuppressKeyPress = true;
 
-            PracticeMode();
+                if (input == _practiceWord.Translations[_practiceWord.ToLanguage].ToLower())
+                {
+                    PracticetextBox.Clear();
+                    Score++;
+                    Attempts++;
+                }
+                else
+                {
+                    PracticetextBox.Clear();
+                    DialogResult result = MessageBox.Show("Wrong answer!",
+                        $"The correct translation is {_practiceWord.Translations[_practiceWord.ToLanguage].ToLower()}");
+                    Attempts++;
+                }
+                Resultlabel.Text = $"{Score} of {Attempts} words were correct.";
+                Resultlabel.Visible = true;
+                PracticeMode();
+            }
+        }
+        private void PracticeMode()
+        {
+            if (WordList.LoadList(selectedFile) != null)
+            {
+                _wordList = WordList.LoadList(selectedFile);
+            }
+            
+            _practiceWord = _wordList.GetWordToPractice();
+            var arrayOfLanguage = _wordList.Languages;
+
             Practicelabel.Text =
-                $"Translate the {arrayOfLanguage[PracticeWord.FromLanguage]} word {PracticeWord.Translations[PracticeWord.FromLanguage]} " +
-                $"to {arrayOfLanguage[PracticeWord.ToLanguage]} translation";
+                $"Translate the {arrayOfLanguage[_practiceWord.FromLanguage]} word {_practiceWord.Translations[_practiceWord.FromLanguage]} " +
+                $"to {arrayOfLanguage[_practiceWord.ToLanguage]} translation";
             Resultlabel.Text = $"{Score} of {Attempts} words were correct.";
-
         }
     }
 }

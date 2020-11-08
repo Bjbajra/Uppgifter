@@ -90,20 +90,13 @@ namespace Word_Library
 
         public bool Remove(int translations, string word)
         {
-            var removeIndex = 0;
-            if (_myWords.Any(i => i.Translations[translations] == word))
+            if (_myWords.Any(i => i.Translations[translations] == word.ToLower()))
             {
-                removeIndex = _myWords.IndexOf(_myWords.First(i => i.Translations[translations] == word));
-            }
-
-            if (_myWords.Count != 0)
-            {
+                int removeIndex = _myWords.IndexOf(_myWords.First(i => i.Translations[translations] == word.ToLower()));
                 _myWords.RemoveAt(removeIndex);
                 Save();
-                return true;
             }
-
-            return false;
+            return true;
         }
 
         public int Count()
@@ -129,8 +122,10 @@ namespace Word_Library
             int fromLanguage = rnd.Next(Languages.Length);
             int toLanguage = rnd.Next(Languages.Length);
 
-            while (toLanguage == fromLanguage) toLanguage = rnd.Next(Languages.Length);
-
+            while (toLanguage == fromLanguage)
+            {
+                toLanguage = rnd.Next(Languages.Length);
+            }
             return new Word(fromLanguage, toLanguage, _myWords[randWord].Translations);
         }
     }

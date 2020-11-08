@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
 using Word_Library;
 
 
@@ -40,13 +42,19 @@ namespace Lab4_ConsoleApp
                     case "-new":
                         string name = args[1];
 
+                        if (File.Exists(WordList.GetList() + name + ".dat"))
+                        {
+                            Console.WriteLine($"{name} already exists! Give new name.");
+                            return;
+                        }
+
                         if (args.Length < 4)
                         {
                             Console.WriteLine(
                                 $"Add at  least two languages to languages, you added{args.Length - 2}");
                             break;
                         }
-                        
+
                         var arrayOfLanguage = new string[args.Length - 2];
                         for (int i = 2; i < args.Length; i++)
                         {
@@ -60,62 +68,88 @@ namespace Lab4_ConsoleApp
 
                     case "-add":
                         name = args[1];
-                        AddWords(name, WordList.LoadList(name).Languages);
+
+                        if (WordList.LoadList(name) == null)
+                        {
+                            Console.WriteLine("List does not exists!");
+                        }
+                        else
+                        {
+                            AddWords(name, WordList.LoadList(name).Languages);
+                        }
                         break;
 
                     case "-remove":
-                        int language = 0;
-                        WordList.LoadList(args[1]);
-                        for (int i = 0; i < WordList.LoadList(args[1]).Languages.Length; i++)
+                        int deleteLanguage = 0;
+                        var list = WordList.LoadList(args[1]);
+                        if (list == null)
                         {
-                            if (args[2] != WordList.LoadList(args[1]).Languages[i]) continue;
-                            language = i;
+                            Console.WriteLine("List does not exists!");
                         }
 
-                        for (int i = 3; i < args.Length; i++)
+                        else
                         {
-                            WordList.LoadList(args[1]).Remove(language, args[i]);
-                            Console.WriteLine(
-                                WordList.LoadList(args[1]).Remove(language, args[i])
-                                    ? $"The {WordList.LoadList(args[1]).Languages[language]} word {args[i]} was removed"
-                                    : "Nothing was removed");
+                            for (int i = 0; i < list.Languages.Length; i++)
+                            {
+                                if (list.Languages[i] == args[2])
+                                {
+                                    deleteLanguage = i;
+                                }
+                            }
+
+                            for (int i = 3; i < args.Length; i++)
+                            {
+                                Console.WriteLine(
+                                    list.Remove(deleteLanguage, args[i])
+                                        ? $"The {list.Languages[deleteLanguage]} word {args[i]} was removed\n"
+                                        : "Nothing was removed\n");
+                            }
                         }
                         break;
 
                     case "-words":
-                        var sortBy = 0;
-                        arrayOfLanguage = WordList.LoadList(args[1]).Languages;
-                        if (args.Length > 2)
+                        if (WordList.LoadList(args[1]) == null)
                         {
-                            for (int i = 0; i < arrayOfLanguage.Length; i++)
+                            Console.WriteLine("List does not exists!\n");
+                        }
+
+                        else
+                        {
+                            var sortByTranslations = 0;
+                            arrayOfLanguage = WordList.LoadList(args[1]).Languages;
+                            if (args.Length > 2)
                             {
-                                if (args.Length > 1 && args[2] == arrayOfLanguage[i])
-                                    sortBy = i;
+                                for (int i = 0; i < arrayOfLanguage.Length; i++)
+                                {
+                                    if (args.Length > 1 && args[2] == arrayOfLanguage[i])
+                                        sortByTranslations = i;
+                                }
                             }
-                        }
 
-                        foreach (var languages in arrayOfLanguage)
-                        {
-                            Console.Write(languages.PadRight(20).ToUpper());
-                        }
-
-                        Console.WriteLine();
-                        WordList.LoadList(args[1]).List(sortBy, x =>
-                        {
-                            foreach (var text in x)
+                            foreach (var languages in arrayOfLanguage)
                             {
-                                Console.Write(text.PadRight(20));
+                                Console.Write(languages.PadRight(20).ToUpper());
                             }
 
                             Console.WriteLine();
-                        });
+                            WordList.LoadList(args[1]).List(sortByTranslations, x =>
+                            {
+                                foreach (var text in x)
+                                {
+                                    Console.Write(text.PadRight(20));
+                                }
+
+                                Console.WriteLine();
+                            });
+                        }
+
                         break;
 
                     case "-count":
                         name = args[1];
-                        Console.WriteLine(name != null
-                            ? $"{WordList.LoadList(name).Count()} words in the list '{name}'\n"
-                            : "The given list does not exists.\n");
+                        Console.WriteLine(WordList.LoadList(name) == null 
+                            ? "List does not exists!\n"
+                            :$"{WordList.LoadList(name).Count()} words in the list '{name}'\n");
                         break;
 
                     case "-practice":
@@ -126,10 +160,10 @@ namespace Lab4_ConsoleApp
                             wordList = WordList.LoadList(name);
                             if (wordList.Count() != 0)
                             {
-                                var enterNotPressed = true;
+                                var isRunning = true;
                                 var score = 0;
                                 var attempts = 0;
-                                while (enterNotPressed)
+                                while (isRunning)
                                 {
                                     var practiceWord = wordList.GetWordToPractice();
                                     Console.Write(
@@ -152,21 +186,19 @@ namespace Lab4_ConsoleApp
 
                                     if (!string.IsNullOrWhiteSpace(input)) continue;
                                     Console.WriteLine($"Your score is  {score} out of {attempts}");
-                                    Console.WriteLine($"{(score * 100 / attempts)}% of your answers were correct.");
+                                    Console.WriteLine($"{(score * 100 / attempts)}% of your answers were correct.\n");
                                     break;
                                 }
                             }
                             else
                             {
-                                Console.WriteLine("This list is empty.");
+                                Console.WriteLine("This list is empty.\n");
                             }
                         }
                         else
                         {
-                            Console.WriteLine("Given list does not exists!");
+                            Console.WriteLine("Given list does not exists!\n");
                         }
-
-
                         break;
                 }
             }
@@ -194,8 +226,9 @@ namespace Lab4_ConsoleApp
                     words[i] = input;
                 }
                 if (isRunning) list.Add(words);
+               
             }
-            Console.WriteLine($"{list.Count()} word was added to list '{name}'");
+            //Console.WriteLine($"{list.ToString().Count()} word was added to list '{name}'\n");
         }
 
         private static string[] Input(string[] args)

@@ -15,4 +15,3 @@ C:\Users\bijay\source\repos\Lab4\Lab4_WinForm\obj\Debug\Lab4_WinForm.PracticeCon
 C:\Users\bijay\source\repos\Lab4\Lab4_WinForm\obj\Debug\Lab4_WinForm.MainForm.resources
 C:\Users\bijay\source\repos\Lab4\Lab4_WinForm\obj\Debug\Lab4_WinForm.NewListForm.resources
 C:\Users\bijay\source\repos\Lab4\Lab4_WinForm\obj\Debug\Lab4_WinForm.AddWordForm.resources
-C:\Users\bijay\source\repos\Lab4\Lab4_WinForm\obj\Debug\Lab4_WinForm.MainGridControl.resources

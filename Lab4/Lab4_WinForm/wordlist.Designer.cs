@@ -1,6 +1,6 @@
 ﻿namespace Lab4_WinForm
 {
-    partial class SelectWordlist
+    partial class SelectWordList
     {
         /// <summary>
         /// Required designer variable.
@@ -36,7 +36,7 @@
             this.Newlist_button = new System.Windows.Forms.Button();
             this.Cancel_button = new System.Windows.Forms.Button();
             this.Select_button = new System.Windows.Forms.Button();
-            this.LanguageTextBox = new System.Windows.Forms.TextBox();
+            this.listBoxLanguage = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // Wordlists_label
@@ -61,7 +61,7 @@
             // 
             this.languages.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.languages.AutoSize = true;
-            this.languages.Location = new System.Drawing.Point(209, 22);
+            this.languages.Location = new System.Drawing.Point(210, 22);
             this.languages.Name = "languages";
             this.languages.Size = new System.Drawing.Size(60, 13);
             this.languages.TabIndex = 2;
@@ -72,11 +72,12 @@
             this.listBoxWord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listBoxWord.FormattingEnabled = true;
-            this.listBoxWord.Location = new System.Drawing.Point(20, 38);
+            this.listBoxWord.Location = new System.Drawing.Point(23, 38);
             this.listBoxWord.Name = "listBoxWord";
             this.listBoxWord.Size = new System.Drawing.Size(168, 186);
-            this.listBoxWord.TabIndex = 3;
-            this.listBoxWord.SelectedIndexChanged += new System.EventHandler(this.listBoxWord_SelectedIndexChanged);
+            this.listBoxWord.TabIndex = 0;
+            this.listBoxWord.SelectedValueChanged += new System.EventHandler(this.listBoxWord_SelectedValueChanged);
+            this.listBoxWord.DoubleClick += new System.EventHandler(this.listBoxWord_DoubleClick_1);
             // 
             // Value_label
             // 
@@ -89,7 +90,7 @@
             // Newlist_button
             // 
             this.Newlist_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Newlist_button.Location = new System.Drawing.Point(20, 230);
+            this.Newlist_button.Location = new System.Drawing.Point(20, 238);
             this.Newlist_button.Name = "Newlist_button";
             this.Newlist_button.Size = new System.Drawing.Size(75, 23);
             this.Newlist_button.TabIndex = 6;
@@ -100,7 +101,8 @@
             // Cancel_button
             // 
             this.Cancel_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Cancel_button.Location = new System.Drawing.Point(209, 230);
+            this.Cancel_button.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Cancel_button.Location = new System.Drawing.Point(210, 238);
             this.Cancel_button.Name = "Cancel_button";
             this.Cancel_button.Size = new System.Drawing.Size(75, 23);
             this.Cancel_button.TabIndex = 7;
@@ -111,7 +113,7 @@
             // Select_button
             // 
             this.Select_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Select_button.Location = new System.Drawing.Point(302, 230);
+            this.Select_button.Location = new System.Drawing.Point(303, 238);
             this.Select_button.Name = "Select_button";
             this.Select_button.Size = new System.Drawing.Size(75, 23);
             this.Select_button.TabIndex = 8;
@@ -119,20 +121,23 @@
             this.Select_button.UseVisualStyleBackColor = true;
             this.Select_button.Click += new System.EventHandler(this.Select_button_Click);
             // 
-            // LanguageTextBox
+            // listBoxLanguage
             // 
-            this.LanguageTextBox.Location = new System.Drawing.Point(209, 38);
-            this.LanguageTextBox.Multiline = true;
-            this.LanguageTextBox.Name = "LanguageTextBox";
-            this.LanguageTextBox.Size = new System.Drawing.Size(168, 186);
-            this.LanguageTextBox.TabIndex = 9;
+            this.listBoxLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.listBoxLanguage.FormattingEnabled = true;
+            this.listBoxLanguage.Location = new System.Drawing.Point(210, 38);
+            this.listBoxLanguage.Name = "listBoxLanguage";
+            this.listBoxLanguage.Size = new System.Drawing.Size(168, 186);
+            this.listBoxLanguage.TabIndex = 9;
             // 
-            // SelectWordlist
+            // SelectWordList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 263);
-            this.Controls.Add(this.LanguageTextBox);
+            this.CancelButton = this.Cancel_button;
+            this.ClientSize = new System.Drawing.Size(398, 271);
+            this.Controls.Add(this.listBoxLanguage);
             this.Controls.Add(this.Select_button);
             this.Controls.Add(this.Cancel_button);
             this.Controls.Add(this.Newlist_button);
@@ -142,9 +147,11 @@
             this.Controls.Add(this.count);
             this.Controls.Add(this.Wordlists_label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "SelectWordlist";
+            this.MinimizeBox = false;
+            this.Name = "SelectWordList";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Select word list";
+            this.Text = "Select wordlist";
             this.Activated += new System.EventHandler(this.SelectWordlist_Activated);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -161,6 +168,6 @@
         private System.Windows.Forms.Button Newlist_button;
         private System.Windows.Forms.Button Cancel_button;
         private System.Windows.Forms.Button Select_button;
-        private System.Windows.Forms.TextBox LanguageTextBox;
+        private System.Windows.Forms.ListBox listBoxLanguage;
     }
 }

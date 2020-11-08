@@ -15,6 +15,12 @@ namespace Lab4_WinForm
         private void OKButton_Click(object sender, EventArgs e)
         {
             var name = ListtextBox.Text;
+            if (name == "")
+            {
+                MessageBox.Show("You must give the name!", "Error:");
+                return;
+            }
+
             var languageList = LanguagetextBox.Lines.ToList();
             var arrayOfLangugae = languageList.Where(i => !string.IsNullOrWhiteSpace(i)).ToArray();
 
