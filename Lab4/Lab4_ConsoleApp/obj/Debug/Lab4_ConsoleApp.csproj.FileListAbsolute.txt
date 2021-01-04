@@ -8,3 +8,5 @@ C:\Users\bijay\source\repos\Lab4\Lab4_ConsoleApp\bin\Debug\Word_Library.pdb
 C:\Users\bijay\source\repos\Lab4\Lab4_ConsoleApp\obj\Debug\Lab4_ConsoleApp.csproj.CopyComplete
 C:\Users\bijay\source\repos\Lab4\Lab4_ConsoleApp\obj\Debug\Lab4_ConsoleApp.exe
 C:\Users\bijay\source\repos\Lab4\Lab4_ConsoleApp\obj\Debug\Lab4_ConsoleApp.pdb
+C:\Users\bijay\source\repos\Lab4\Lab4_ConsoleApp\bin\Debug\NewWord_Library.dll
+C:\Users\bijay\source\repos\Lab4\Lab4_ConsoleApp\bin\Debug\NewWord_Library.pdb

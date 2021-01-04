@@ -106,6 +106,8 @@
             // 
             this.TranslationGridView.AllowUserToAddRows = false;
             this.TranslationGridView.AllowUserToDeleteRows = false;
+            this.TranslationGridView.AllowUserToResizeColumns = false;
+            this.TranslationGridView.AllowUserToResizeRows = false;
             this.TranslationGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -182,6 +184,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WordList";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TranslationGridView)).EndInit();

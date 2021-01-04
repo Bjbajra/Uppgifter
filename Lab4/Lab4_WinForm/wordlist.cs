@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using Word_Library;
-
+//using Word_Library;
+using NewWord_Library;
 namespace Lab4_WinForm
 {
     public partial class SelectWordList : Form
@@ -35,8 +35,9 @@ namespace Lab4_WinForm
 
         private void SelectWordlist_Activated(object sender, EventArgs e)
         {
+            Select_button.Enabled = false;
             listBoxWord.Items.Clear();
-            var lists = WordList.GetList();
+            var lists = WordList.GetLists();
             foreach (var list in lists)
             {
                 if (WordList.LoadList(list) != null && WordList.LoadList(list).Languages.Length > 1)

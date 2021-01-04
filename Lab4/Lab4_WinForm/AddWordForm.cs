@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Word_Library;
+//using Word_Library;
+using NewWord_Library;
 
 namespace Lab4_WinForm
 {
@@ -19,7 +20,7 @@ namespace Lab4_WinForm
         }
         private void AddWord()
         {
-            for (int i = 1; i < WordGridView.Rows.Count; i++)
+            for (int i = 0; i < WordGridView.Rows.Count; i++)
             {
                 if (!String.IsNullOrWhiteSpace(WordGridView.Rows[i].Cells[1].Value.ToString()))
                 {
@@ -49,7 +50,6 @@ namespace Lab4_WinForm
         private void AddWordForm_Load(object sender, EventArgs e)
         {
             AddWordButton.Enabled = false;
-            WordGridView.Rows.Add("");
             var arrayOfLanguage = WordList.LoadList(selected).Languages;
 
             foreach (var language in arrayOfLanguage)
@@ -60,22 +60,20 @@ namespace Lab4_WinForm
 
         private void WordGridView_CellValueChanged_1(object sender, DataGridViewCellEventArgs e)
         {
-            for (int i = 1; i < (WordGridView.Rows.Count); i++)
+            for (int i = 0; i < WordGridView.Rows.Count; i++)
             {
                 if (WordGridView.Rows[i].Cells["Word"].Value == null)
                 {
                     AddWordButton.Enabled = false;
                     break;
-                }
-                else if (string.IsNullOrWhiteSpace(WordGridView.Rows[i].Cells["Word"].Value.ToString()))
+                } 
+                if (string.IsNullOrWhiteSpace(WordGridView.Rows[i].Cells["Word"].Value.ToString()))
                 {
                     AddWordButton.Enabled = false;
                     break;
                 }
-                else
-                {
-                    AddWordButton.Enabled = true;
-                }
+                AddWordButton.Enabled = true;
+                
             }
         }
     }

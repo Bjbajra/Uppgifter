@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab4_ConsoleApp", "Lab4_Con
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab4_WinForm", "Lab4_WinForm\Lab4_WinForm.csproj", "{20ECB854-64EF-4B98-9949-EF6192B40729}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewWord_Library", "NewWord_Library\NewWord_Library.csproj", "{35FF7B29-5CDB-49DC-9360-E770B09B2C59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{20ECB854-64EF-4B98-9949-EF6192B40729}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20ECB854-64EF-4B98-9949-EF6192B40729}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20ECB854-64EF-4B98-9949-EF6192B40729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35FF7B29-5CDB-49DC-9360-E770B09B2C59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35FF7B29-5CDB-49DC-9360-E770B09B2C59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35FF7B29-5CDB-49DC-9360-E770B09B2C59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35FF7B29-5CDB-49DC-9360-E770B09B2C59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

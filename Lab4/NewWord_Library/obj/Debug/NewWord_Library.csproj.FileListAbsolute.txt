@@ -1,0 +1,6 @@
+C:\Users\bijay\source\repos\Lab4\NewWord_Library\bin\Debug\NewWord_Library.dll
+C:\Users\bijay\source\repos\Lab4\NewWord_Library\bin\Debug\NewWord_Library.pdb
+C:\Users\bijay\source\repos\Lab4\NewWord_Library\obj\Debug\NewWord_Library.csprojAssemblyReference.cache
+C:\Users\bijay\source\repos\Lab4\NewWord_Library\obj\Debug\NewWord_Library.csproj.CoreCompileInputs.cache
+C:\Users\bijay\source\repos\Lab4\NewWord_Library\obj\Debug\NewWord_Library.dll
+C:\Users\bijay\source\repos\Lab4\NewWord_Library\obj\Debug\NewWord_Library.pdb

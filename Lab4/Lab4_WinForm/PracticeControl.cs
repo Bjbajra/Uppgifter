@@ -1,6 +1,7 @@
-﻿using System;
+﻿//using Word_Library;
+using NewWord_Library;
+using System;
 using System.Windows.Forms;
-using Word_Library;
 
 namespace Lab4_WinForm
 {
@@ -13,21 +14,24 @@ namespace Lab4_WinForm
         {
             InitializeComponent();
         }
-       
+
         public int Score { get; set; }
         public int Attempts { get; set; }
-        
+
         private void PracticeControl_Load(object sender, EventArgs e)
         {
             PracticeMode();
+            Resultlabel.Visible = false;
         }
 
         private void EndButton_Click(object sender, EventArgs e)
-        { 
+        {
             Visible = false;
+
             MainForm mainForm = new MainForm();
             mainForm.TranslationGridView.BringToFront();
             mainForm.TranslationGridView.Visible = true;
+
         }
 
         private void RestartButton_Click(object sender, EventArgs e)
@@ -37,6 +41,7 @@ namespace Lab4_WinForm
             Score = 0;
             Resultlabel.Visible = false;
             PracticeMode();
+
         }
         private void PracticeTextBox_KeyDown(object sender, KeyEventArgs e)
         {
@@ -70,7 +75,7 @@ namespace Lab4_WinForm
             {
                 _wordList = WordList.LoadList(selectedFile);
             }
-            
+
             _practiceWord = _wordList.GetWordToPractice();
             var arrayOfLanguage = _wordList.Languages;
 

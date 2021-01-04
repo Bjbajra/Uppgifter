@@ -116,6 +116,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NewWord_Library\NewWord_Library.csproj">
+      <Project>{35ff7b29-5cdb-49dc-9360-e770b09b2c59}</Project>
+      <Name>NewWord_Library</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Word_Library\Word_Library.csproj">
       <Project>{205ce8ec-c20a-489d-8df4-d72796e2c199}</Project>
       <Name>Word_Library</Name>

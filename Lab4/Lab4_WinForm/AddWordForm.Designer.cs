@@ -64,6 +64,8 @@
             // 
             this.WordGridView.AllowUserToAddRows = false;
             this.WordGridView.AllowUserToDeleteRows = false;
+            this.WordGridView.AllowUserToResizeColumns = false;
+            this.WordGridView.AllowUserToResizeRows = false;
             this.WordGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.WordGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.WordGridView.ColumnHeadersVisible = false;
@@ -79,14 +81,18 @@
             // 
             // langugae
             // 
+            this.langugae.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.langugae.HeaderText = "Language";
             this.langugae.Name = "langugae";
             this.langugae.ReadOnly = true;
+            this.langugae.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Word
             // 
+            this.Word.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Word.HeaderText = "Word";
             this.Word.Name = "Word";
+            this.Word.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // AddWordForm
             // 

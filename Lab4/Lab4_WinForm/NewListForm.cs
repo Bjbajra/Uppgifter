@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-using Word_Library;
+//using Word_Library;
+using NewWord_Library;
 
 namespace Lab4_WinForm
 {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using Word_Library;
+//using Word_Library;
+using NewWord_Library;
 
 namespace Lab4_WinForm
 {
@@ -21,6 +22,11 @@ namespace Lab4_WinForm
                 selectWordList.ShowDialog();
                 selectWordList.StartPosition = FormStartPosition.CenterParent;
                 TranslationGridView.Show();
+                editModeToolStripMenuItem.Checked = true;
+                practiceModeToolStripMenuItem.Checked = false;
+                AddButton.Show();
+                RemoveButton.Show();
+                PracticeButton.Show();
             }
         }
 
@@ -116,5 +122,11 @@ namespace Lab4_WinForm
             AddToDataGrid();
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            AddButton.Hide();
+            RemoveButton.Hide();
+            PracticeButton.Hide();
+        }
     }
 }

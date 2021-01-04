@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using Word_Library;
-
+//using Word_Library;
+using NewWord_Library;
 
 namespace Lab4_ConsoleApp
 {
@@ -28,7 +28,7 @@ namespace Lab4_ConsoleApp
                 switch (Input(args)[0])
                 {
                     case "-lists":
-                        var files = WordList.GetList();
+                        var files = WordList.GetLists();
                         foreach (var file in files)
                         {
                             if (WordList.LoadList(file) != null)
@@ -36,13 +36,12 @@ namespace Lab4_ConsoleApp
                                 Console.WriteLine(file);
                             }
                         }
-
                         break;
 
                     case "-new":
                         string name = args[1];
 
-                        if (File.Exists(WordList.GetList() + name + ".dat"))
+                        if (File.Exists(WordList.GetLists() + name + ".dat"))
                         {
                             Console.WriteLine($"{name} already exists! Give new name.");
                             return;
@@ -55,15 +54,15 @@ namespace Lab4_ConsoleApp
                             break;
                         }
 
-                        var arrayOfLanguage = new string[args.Length - 2];
+                        var languageList = new string[args.Length - 2];
                         for (int i = 2; i < args.Length; i++)
                         {
-                            arrayOfLanguage[i - 2] = args[i];
+                            languageList[i - 2] = args[i];
                         }
 
-                        WordList wordList = new WordList(name, arrayOfLanguage);
+                        WordList wordList = new WordList(name, languageList);
                         wordList.Save();
-                        AddWords(name, arrayOfLanguage);
+                        AddWords(wordList);
                         break;
 
                     case "-add":
@@ -75,19 +74,19 @@ namespace Lab4_ConsoleApp
                         }
                         else
                         {
-                            AddWords(name, WordList.LoadList(name).Languages);
+                            AddWords(WordList.LoadList(name));
                         }
                         break;
 
                     case "-remove":
-                        int deleteLanguage = 0;
+                        var deleteLanguage = 0;
                         var list = WordList.LoadList(args[1]);
-                        if (list == null)
+                        if (args.Length >= 2 && list == null)
                         {
                             Console.WriteLine("List does not exists!");
                         }
 
-                        else
+                        else if (args.Length > 2 && list != null)
                         {
                             for (int i = 0; i < list.Languages.Length; i++)
                             {
@@ -106,7 +105,7 @@ namespace Lab4_ConsoleApp
                             }
                         }
                         break;
-
+                    
                     case "-words":
                         if (WordList.LoadList(args[1]) == null)
                         {
@@ -116,17 +115,17 @@ namespace Lab4_ConsoleApp
                         else
                         {
                             var sortByTranslations = 0;
-                            arrayOfLanguage = WordList.LoadList(args[1]).Languages;
+                            languageList = WordList.LoadList(args[1]).Languages;
                             if (args.Length > 2)
                             {
-                                for (int i = 0; i < arrayOfLanguage.Length; i++)
+                                for (int i = 0; i < languageList.Length; i++)
                                 {
-                                    if (args.Length > 1 && args[2] == arrayOfLanguage[i])
+                                    if (args.Length > 1 && args[2] == languageList[i])
                                         sortByTranslations = i;
                                 }
                             }
 
-                            foreach (var languages in arrayOfLanguage)
+                            foreach (var languages in languageList)
                             {
                                 Console.Write(languages.PadRight(20).ToUpper());
                             }
@@ -142,7 +141,6 @@ namespace Lab4_ConsoleApp
                                 Console.WriteLine();
                             });
                         }
-
                         break;
 
                     case "-count":
@@ -156,7 +154,7 @@ namespace Lab4_ConsoleApp
                         name = args[1];
                         if (WordList.LoadList(name) != null)
                         {
-                            arrayOfLanguage = WordList.LoadList(name).Languages;
+                            languageList = WordList.LoadList(name).Languages;
                             wordList = WordList.LoadList(name);
                             if (wordList.Count() != 0)
                             {
@@ -167,8 +165,8 @@ namespace Lab4_ConsoleApp
                                 {
                                     var practiceWord = wordList.GetWordToPractice();
                                     Console.Write(
-                                        $"Translate the  {arrayOfLanguage[practiceWord.FromLanguage]} word {practiceWord.Translations[practiceWord.FromLanguage]}" +
-                                        $" to {arrayOfLanguage[practiceWord.ToLanguage]} translation: ");
+                                        $"Translate the  {languageList[practiceWord.FromLanguage]} word {practiceWord.Translations[practiceWord.FromLanguage]}" +
+                                        $" to {languageList[practiceWord.ToLanguage]} translation: ");
                                     var input = Console.ReadLine().ToLower();
 
                                     if (input == practiceWord.Translations[practiceWord.ToLanguage].ToLower())
@@ -180,7 +178,7 @@ namespace Lab4_ConsoleApp
 
                                     else if (!string.IsNullOrWhiteSpace(input))
                                     {
-                                        Console.WriteLine("The answer is wrong!");
+                                        Console.WriteLine($"The answer is wrong! The correct translation is {practiceWord.Translations[practiceWord.ToLanguage].ToLower()}");
                                         attempts++;
                                     }
 
@@ -203,34 +201,32 @@ namespace Lab4_ConsoleApp
                 }
             }
         }
-        private static void AddWords(string name, string[] languages)
+        private static void AddWords(WordList wordList)
         {
+
             Console.WriteLine("Press enter(empty line) to stop adding new words.\n");
-            WordList list = WordList.LoadList(name);
             bool isRunning = true;
-            while (isRunning)
+
+            do
             {
-                var words = new string[languages.Length];
-                for (int i = 0; i < languages.Length; i++)
+                var words = new string[wordList.Languages.Length];
+                for (int i = 0; i < wordList.Languages.Length; i++)
                 {
                     Console.Write(i == 0
-                        ? $"Add new word {languages[i]}: "
-                        : $"Add {languages[i]} translation: ");
-                    var input = Console.ReadLine().ToLower();
-                    if (string.IsNullOrWhiteSpace(input))
-                    {
-                        list.Save();
-                        isRunning = false;
-                        break;
-                    }
-                    words[i] = input;
-                }
-                if (isRunning) list.Add(words);
-               
-            }
-            //Console.WriteLine($"{list.ToString().Count()} word was added to list '{name}'\n");
-        }
+                        ? $"Add new word {wordList.Languages[i]}: "
+                        : $"Add {wordList.Languages[i]} translation: ");
+                    words[i] = Console.ReadLine().ToLower();
+                    isRunning = (words[i] == "");
+                    if (isRunning) break;
 
+                }
+
+                if (!isRunning) wordList.Add(words);
+                wordList.Save();
+            } while (isRunning == false);
+
+        }
+      
         private static string[] Input(string[] args)
         {
             var userInput = args;
