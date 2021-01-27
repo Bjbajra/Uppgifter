@@ -4,10 +4,10 @@
     <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UserControls\TrackControl.cs">
-      <SubType>UserControl</SubType>
+    <Compile Update="Tracks.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UserControls\ViewControl.cs">
+    <Compile Update="UserControls\PlaylistTrackControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

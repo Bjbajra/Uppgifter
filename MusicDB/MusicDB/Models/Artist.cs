@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 #nullable disable
 
 namespace MusicDB
 {
+    [DebuggerDisplay("{Name}")]
     public partial class Artist
     {
         public Artist()

@@ -30,14 +30,15 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.DGVPlaylist = new System.Windows.Forms.DataGridView();
             this.PlaylistId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PlaylistName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnDeletePlaylist = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddNew = new System.Windows.Forms.Button();
             this.txtPlaylistName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblPlaylist = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,13 +51,14 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVPlaylist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -66,13 +68,14 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Panel2.Controls.Add(this.btnReset);
+            this.splitContainer1.Panel2.Controls.Add(this.DGVPlaylist);
             this.splitContainer1.Panel2.Controls.Add(this.btnDeletePlaylist);
-            this.splitContainer1.Panel2.Controls.Add(this.button1);
+            this.splitContainer1.Panel2.Controls.Add(this.btnAddNew);
             this.splitContainer1.Panel2.Controls.Add(this.txtPlaylistName);
-            this.splitContainer1.Panel2.Controls.Add(this.label2);
+            this.splitContainer1.Panel2.Controls.Add(this.lblPlaylist);
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
-            this.splitContainer1.SplitterDistance = 266;
+            this.splitContainer1.SplitterDistance = 200;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.Text = "splitContainer1";
             // 
@@ -81,87 +84,103 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(266, 450);
+            this.treeView1.Size = new System.Drawing.Size(200, 450);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
-            // dataGridView1
+            // btnReset
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReset.Location = new System.Drawing.Point(490, 48);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(72, 24);
+            this.btnReset.TabIndex = 4;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // DGVPlaylist
+            // 
+            this.DGVPlaylist.AllowUserToAddRows = false;
+            this.DGVPlaylist.AllowUserToDeleteRows = false;
+            this.DGVPlaylist.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGVPlaylist.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGVPlaylist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVPlaylist.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PlaylistId,
             this.PlaylistName,
             this.View});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 149);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(527, 301);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.Text = "dataGridView1";
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.DGVPlaylist.Location = new System.Drawing.Point(3, 91);
+            this.DGVPlaylist.Name = "DGVPlaylist";
+            this.DGVPlaylist.ReadOnly = true;
+            this.DGVPlaylist.RowHeadersVisible = false;
+            this.DGVPlaylist.Size = new System.Drawing.Size(593, 359);
+            this.DGVPlaylist.TabIndex = 0;
+            this.DGVPlaylist.TabStop = false;
+            this.DGVPlaylist.Text = "dataGridView1";
+            this.DGVPlaylist.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.DGVPlaylist.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // PlaylistId
             // 
             this.PlaylistId.HeaderText = "ID";
             this.PlaylistId.Name = "PlaylistId";
             this.PlaylistId.ReadOnly = true;
+            this.PlaylistId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // PlaylistName
             // 
             this.PlaylistName.HeaderText = "Playlist Name";
             this.PlaylistName.Name = "PlaylistName";
             this.PlaylistName.ReadOnly = true;
+            this.PlaylistName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // View
             // 
-            this.View.HeaderText = "View";
+            this.View.HeaderText = "Manage Tracks";
             this.View.Name = "View";
             this.View.ReadOnly = true;
-            this.View.Text = "Details";
+            this.View.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.View.Text = "Playlist details";
             this.View.UseColumnTextForButtonValue = true;
             // 
             // btnDeletePlaylist
             // 
-            this.btnDeletePlaylist.Location = new System.Drawing.Point(189, 77);
+            this.btnDeletePlaylist.Location = new System.Drawing.Point(154, 46);
             this.btnDeletePlaylist.Name = "btnDeletePlaylist";
             this.btnDeletePlaylist.Size = new System.Drawing.Size(119, 26);
             this.btnDeletePlaylist.TabIndex = 3;
-            this.btnDeletePlaylist.Text = "Delete";
+            this.btnDeletePlaylist.Text = "Delete Playlist";
             this.btnDeletePlaylist.UseVisualStyleBackColor = true;
             this.btnDeletePlaylist.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnAddNew
             // 
-            this.button1.Location = new System.Drawing.Point(23, 77);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 26);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Add New Playlist";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddNew.Location = new System.Drawing.Point(23, 46);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(116, 26);
+            this.btnAddNew.TabIndex = 1;
+            this.btnAddNew.Text = "Add New Playlist";
+            this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtPlaylistName
             // 
-            this.txtPlaylistName.Location = new System.Drawing.Point(108, 26);
+            this.txtPlaylistName.Location = new System.Drawing.Point(108, 12);
             this.txtPlaylistName.Name = "txtPlaylistName";
-            this.txtPlaylistName.Size = new System.Drawing.Size(143, 23);
+            this.txtPlaylistName.Size = new System.Drawing.Size(165, 23);
             this.txtPlaylistName.TabIndex = 2;
             // 
-            // label2
+            // lblPlaylist
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 15);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Playlist Name";
+            this.lblPlaylist.AutoSize = true;
+            this.lblPlaylist.Location = new System.Drawing.Point(20, 15);
+            this.lblPlaylist.Name = "lblPlaylist";
+            this.lblPlaylist.Size = new System.Drawing.Size(82, 15);
+            this.lblPlaylist.TabIndex = 0;
+            this.lblPlaylist.Text = "Playlist Name:";
             // 
             // label1
             // 
@@ -246,23 +265,18 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVPlaylist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PlaylistId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PlaylistName;
-        private System.Windows.Forms.DataGridViewButtonColumn View;
         private System.Windows.Forms.Button btnDeletePlaylist;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.TextBox txtPlaylistName;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblPlaylist;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -271,7 +285,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn3;
-        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView DGVPlaylist;
+        public System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PlaylistId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PlaylistName;
+        private System.Windows.Forms.DataGridViewButtonColumn View;
     }
 }
 

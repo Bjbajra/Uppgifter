@@ -21,9 +21,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Presenters\" />
-    <Folder Include="Views\" />
-  </ItemGroup>
-
 </Project>

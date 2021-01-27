@@ -61,5 +61,5 @@ C:\Users\bijay\source\repos\MusicDB\MusicDB\obj\Debug\netcoreapp3.1\MusicDB.pdb
 C:\Users\bijay\source\repos\MusicDB\MusicDB\obj\Debug\netcoreapp3.1\MusicDB.genruntimeconfig.cache
 C:\Users\bijay\source\repos\MusicDB\MusicDB\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\bijay\source\repos\MusicDB\MusicDB\obj\Debug\netcoreapp3.1\MusicDB.MainForm.resources
-C:\Users\bijay\source\repos\MusicDB\MusicDB\obj\Debug\netcoreapp3.1\MusicDB.ViewControl.resources
-C:\Users\bijay\source\repos\MusicDB\MusicDB\obj\Debug\netcoreapp3.1\MusicDB.UserControls.TrackControl.resources
+C:\Users\bijay\source\repos\MusicDB\MusicDB\obj\Debug\netcoreapp3.1\MusicDB.TracksForm.resources
+C:\Users\bijay\source\repos\MusicDB\MusicDB\obj\Debug\netcoreapp3.1\MusicDB.PlaylistTrackControl.resources

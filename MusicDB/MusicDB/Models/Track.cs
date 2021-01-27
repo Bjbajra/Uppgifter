@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 #nullable disable
 
 namespace MusicDB
 {
+    [DebuggerDisplay("{Name}")]
     public partial class Track
     {
         public int TrackId { get; set; }
@@ -19,5 +21,10 @@ namespace MusicDB
 
         public virtual Album Album { get; set; }
         public virtual ICollection<PlaylistTrack> PlaylistTracks { get; set; }
+
+        public object This
+        {
+            get { return this; }
+        }
     }
 }
